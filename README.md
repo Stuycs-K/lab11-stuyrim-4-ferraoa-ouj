@@ -20,6 +20,12 @@ Make a clear list of features that work/dont work
 ### Java Jester
 | Stats | Description |
 |:------|:------------|
-| HP | 3 |
+| HP | 80 |
+| Attack: Recursion | Releases functions that do 1-3 damage for each interation for a total of 7 interations. Adds 1 point if damage is less than 14 and 2 points if greater or equal|
 ### Python Prince
+### Code Warrior
+| Stats | Description |
+|:------|:------------|
+| HP | 100 |
+| Attack:  |
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
