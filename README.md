@@ -25,14 +25,23 @@ Make a clear list of features that work/dont work
 | Attack: Recursion | Releases a function that does 1-3 damage per iteration for a total of 7 iterations. If total damage is less than 14, restore 1 silliness. Otherwise, restore 2 silliness.|
 | Special: StackOverflow | Releases a function that does 1-3 damage per iteration, with a 10% chance to stop after each iteration. Otherwise, it continues another iteration. Uses 10 silliness. |
 | Support: IndexOutOfBoundsException| Gives a 25% chance to dodge an enemy attack. Lasts 1 turn to others, and 2 turns for itself. Cannot stack. |
+
 ### Python Prince
+| Stats | Description |
+|:------|:------------|
+| HP | 50 |
+| WealthMax | 12 |
+| Attack: Bug in the Code | Deals 5 damage. For every 10 HP less than the max, increase damage dealt by 3. |
+| Special: Fixed Program | Restores all HP, and deals 1 damage for every 2 HP restored. Reduces 8 wealth. |
+| Support: Function Call | Gives away 5 HP to an ally, or takes 4 special from an ally to itself. |
+
 ### Code Warrior
 | Stats | Description |
 |:------|:------------|
 | HP | 100 |
-| CaffeineMax| 12 |
+| CaffeineMax | 12 |
 | Attack: Basic Strike | Deals 7-16 damage, restores 2 caffeine. |
-| Special: Coffee Overdose | Deals 15-30 damage, reduces 8 caffeine. |
+| Special: Caffeine Overdose | Deals 15-30 damage, reduces 8 caffeine. |
 | Support: Daily Coffee | Gives a cup of coffee. Restores 5 special to other. Restores 6 caffeine and 5 hp to self. |
 
 
