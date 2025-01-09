@@ -21,7 +21,8 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 80 |
-| Attack: Recursion | Releases functions that do 1-3 damage for each interation for a total of 7 interations. Adds 1 point if damage is less than 14 and 2 points if greater or equal|
+| Attack: Recursion | Releases functions that do 1-3 damage for each interation for a total of 7 interations. 
+Adds 1 point if damage is less than 14 and 2 points if greater or equal|
 ### Python Prince
 ### Code Warrior
 | Stats | Description |
