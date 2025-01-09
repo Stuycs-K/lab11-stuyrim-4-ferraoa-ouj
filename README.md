@@ -30,5 +30,10 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 100 |
-| Attack: | Deals 7-17 damage, restores 2 caffeine|
+| CaffeineMax| 12 |
+| Attack: Basic Strike | Deals 7-16 damage, restores 2 caffeine. |
+| Special: Coffee Overdose | Deals 15-30 damage, reduces 8 caffeine. |
+| Support: Daily Coffee | Gives a cup of coffee. Restores 5 special to other. Restores 6 caffeine and 5 hp to self. |
+
+
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
