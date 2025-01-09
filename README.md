@@ -21,12 +21,14 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 80 |
-| Attack: Recursion | Releases functions that do 1-3 damage for each interation for a total of 7 interations. 
-Adds 1 point if damage is less than 14 and 2 points if greater or equal|
+| SillinessMax | 12 |
+| Attack: Recursion | Releases a function that does 1-3 damage per iteration for a total of 7 iterations. If total damage is less than 14, restore 1 silliness. Otherwise, restore 2 silliness.|
+| Special: StackOverflow | Releases a function that does 1-3 damage per iteration, with a 10% chance to stop after each iteration. Otherwise, it continues another iteration. Uses 10 silliness. |
+| Support: IndexOutOfBoundsException| Gives a 25% chance to dodge an enemy attack. Lasts 1 turn to others, and 2 turns for itself. Cannot stack. |
 ### Python Prince
 ### Code Warrior
 | Stats | Description |
 |:------|:------------|
 | HP | 100 |
-| Attack:  |
+| Attack: | Deals 7-17 damage, restores 2 caffeine|
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
