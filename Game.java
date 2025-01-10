@@ -30,6 +30,7 @@ public class Game{
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     Text.reset();
+    Text.showCursor();
   }
 
   //Display a line of text starting at
