@@ -13,8 +13,23 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    Text.go(0,0);
+    for(int i = 0; i < WIDTH; i++){ // Column 1
+      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+    }
+
+    for(int column = 1; column < HEIGHT; column++){ //Columns 2 - 29
+      System.out.print("\n" + Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+      Text.go(column, WIDTH);
+      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+    }
+
+    Text.go(HEIGHT, 0); //Column 30
+    for(int i = 0; i < WIDTH; i++){
+      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Text.reset();
   }
 
   //Display a line of text starting at
@@ -62,7 +77,7 @@ public class Game{
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
 
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Text.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
