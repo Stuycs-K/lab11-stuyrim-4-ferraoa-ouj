@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 public class Game{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
@@ -6,7 +7,7 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    run();
+    TextBox(20, 20, 5, 5, "Hello World");
   }
 
   //Display the borders of your screen that will not change.
@@ -39,10 +40,12 @@ public class Game{
   */
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    drawText(text, row, col);
+
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
+    //YOUR CODE HERE
 
 
 
@@ -109,142 +112,136 @@ public class Game{
   }
 
   public static void quit(){
-    Text.reset();>
+    Text.reset();
     Text.showCursor();
     Text.go(32,1);
   }
 
 
-
   public static void run(){
-    //Clear and initialize
-    Text.hideCursor();
-    Text.clear();coffee
+      //Clear and initialize
+      Text.hideCursor();
+      Text.clear();
 
 
-    //Things to attack:
-    //Make an ArrayList of Adventurers and add 1-3 enemies to it.
-    //If only 1 enemy is added it should be the boss class.
-    //start with 1 boss and modify the code to allow 2-3 adventurers later.
-    ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    enemies.add(new CodeWarrior("Goon 1"));
-    enemies.add(new CodeWarrior("Goon 2"));
-    enemies.add(new CodeWarrior("Goon 3"));
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      //Things to attack:
+      //Make an ArrayList of Adventurers and add 1-3 enemies to it.
+      //If only 1 enemy is added it should be the boss class.
+      //start with 1 boss and modify the code to allow 2-3 adventurers later.
+      ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
+      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+      //YOUR CODE HERE
+      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-    //Adventurers you control:
-    //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
-    ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    party.add(new CodeWarrior("Player 1"));
-    party.add(new CodeWarrior("Player 2"));
-    party.add(new CodeWarrior("Player 3"));
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      //Adventurers you control:
+      //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
+      ArrayList<Adventurer> party = new ArrayList<>();
+      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+      //YOUR CODE HERE
+      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-    boolean partyTurn = true;
-    int whichPlayer = 0;
-    int whichOpponent = 0;
-    int turn = 0;
-    String input = "";//blank to get into the main loop.
-    Scanner in = new Scanner(System.in);
-    //Draw the window border
-    drawBackground();
-    //You can add parameters to draw screen!
-    drawScreen();//initial state.
-    //Main loop
+      boolean partyTurn = true;
+      int whichPlayer = 0;
+      int whichOpponent = 0;
+      int turn = 0;
+      String input = "";//blank to get into the main loop.
+      Scanner in = new Scanner(System.in);
+      //Draw the window border
 
-    //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+      //You can add parameters to draw screen!
+      drawScreen();//initial state.
 
-    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      //Read user input
-      input = userInput(in);
-input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>
-      //example debug statment
-      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+      //Main loop
 
-      //display event based on last turn's input
-      if(partyTurn){
+      //display this prompt at the start of the game.
+      String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
-        //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
-        else if(input.equals("special") || input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
-        else if(input.startsWith("su ") || input.startsWith("support ")){
-          //"support 0" or "su 0" or "su 2" etc.
-          //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
+      while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+        //Read user input
+        input = userInput(in);
 
-        //You should decide when you want to re-ask for user input
-        //If no errors:
-        whichPlayer++;
+        //example debug statment
+        TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+
+        //display event based on last turn's input
+        if(partyTurn){
+
+          //Process user input for the last Adventurer:
+          if(input.equals("attack") || input.equals("a")){
+            /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            //YOUR CODE HERE
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          }
+          else if(input.equals("special") || input.equals("sp")){
+            /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            //YOUR CODE HERE
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          }
+          else if(input.startsWith("su ") || input.startsWith("support ")){
+            //"support 0" or "su 0" or "su 2" etc.
+            //assume the value that follows su  is an integer.
+            /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            //YOUR CODE HERE
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          }
+
+          //You should decide when you want to re-ask for user input
+          //If no errors:
+          whichPlayer++;
 
 
-        if(whichPlayer < party.size()){
-          //This is a player turn.
-          //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+          if(whichPlayer < party.size()){
+            //This is a player turn.
+            //Decide where to draw the following prompt:
+            String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
 
+          }else{
+            //This is after the player's turn, and allows the user to see the enemy turn
+            //Decide where to draw the following prompt:
+            String prompt = "press enter to see monster's turn";
+
+            partyTurn = false;
+            whichOpponent = 0;
+          }
+          //done with one party member
         }else{
-          //This is after the player's turn, and allows the user to see the enemy turn
+          //not the party turn!
+
+
+          //enemy attacks a randomly chosen person with a randomly chosen attack.z`
+          //Enemy action choices go here!
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          //YOUR CODE HERE
+          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+
           //Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
+          String prompt = "press enter to see next turn";
 
-          partyTurn = false;
-          whichOpponent = 0;
+          whichOpponent++;
+
+        }//end of one enemy.
+
+        //modify this if statement.
+        if(!partyTurn && whichOpponent >= enemies.size()){
+          //THIS BLOCK IS TO END THE ENEMY TURN
+          //It only triggers after the last enemy goes.
+          whichPlayer = 0;
+          turn++;
+          partyTurn=true;
+          //display this prompt before player's turn
+          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
         }
-        //done with one party member
-      }else{
-        //not the party turn!
+
+        //display the updated screen after input has been processed.
+        drawScreen();
 
 
-        //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices go here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      }//end of main game loop
 
 
-        //Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
-
-        whichOpponent++;
-
-      }//end of one enemy.
-
-      //modify this if statement.
-      if(!partyTurn && whichOpponent >= enemies.size()){
-        //THIS BLOCK IS TO END THE ENEMY TURN
-        //It only triggers after the last enemy goes.
-        whichPlayer = 0;
-        turn++;
-        partyTurn=true;
-        //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-      }
-
-      //display the updated screen after input has been processed.
-      drawScreen();
-
-
-    }//end of main game loop
-
-
-    //After quit reset things:
-    quit();
+      //After quit reset things:
+      quit();
+    }
   }
-}
