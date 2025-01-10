@@ -22,7 +22,8 @@ public class Game{
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    Text.go(startRow, startCol);
+    System.out.print(s);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -108,15 +109,17 @@ public class Game{
   }
 
   public static void quit(){
-    Text.reset();
+    Text.reset();>
     Text.showCursor();
     Text.go(32,1);
   }
 
+
+
   public static void run(){
     //Clear and initialize
     Text.hideCursor();
-    Text.clear();
+    Text.clear();coffee
 
 
     //Things to attack:
@@ -125,14 +128,18 @@ public class Game{
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    enemies.add(new CodeWarrior("Goon 1"));
+    enemies.add(new CodeWarrior("Goon 2"));
+    enemies.add(new CodeWarrior("Goon 3"));
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    party.add(new CodeWarrior("Player 1"));
+    party.add(new CodeWarrior("Player 2"));
+    party.add(new CodeWarrior("Player 3"));
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
@@ -142,10 +149,9 @@ public class Game{
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
-
+    drawBackground();
     //You can add parameters to draw screen!
     drawScreen();//initial state.
-
     //Main loop
 
     //display this prompt at the start of the game.
@@ -154,7 +160,8 @@ public class Game{
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
       input = userInput(in);
-
+input.equals("sp")){
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>
       //example debug statment
       TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
@@ -163,7 +170,8 @@ public class Game{
 
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>input.equals("sp")){
+          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
