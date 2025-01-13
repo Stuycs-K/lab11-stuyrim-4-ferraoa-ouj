@@ -8,7 +8,7 @@ public class Game{
 
   public static void main(String[] args) {
     drawBackground();
-    TextBox(20, 20, 5, 5, "Hello World");
+    TextBox(2, 2, 5, 5, "abcdefghijklmnopqrstuvwxyz");
   }
 
   //Display the borders of your screen that will not change.
@@ -58,8 +58,12 @@ public class Game{
   */
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    drawText(text, row, col);
-
+    for(int i = 0; i < height; i++){ //goes through all rows
+      if (text.length() > width){ //ie. abcd with a width of 3
+        drawText(text.substring(0, width), row + i, col);
+        text = text.substring(width);
+      }
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
