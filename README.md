@@ -21,7 +21,7 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 80 |
-| SillinessMax | 12 |
+| SillinessMax | 15 |
 | Attack: Recursion | Releases a function that does 1-3 damage per iteration for a total of 7 iterations. If total damage is less than 14, restore 1 silliness. Otherwise, restore 2 silliness.|
 | Special: StackOverflow | Releases a function that does 1-3 damage per iteration, with a 10% chance to stop after each iteration. Otherwise, it continues another iteration. Uses 10 silliness. |
 | Support: IndexOutOfBoundsException| Gives a 25% chance to dodge an enemy attack. Lasts 1 turn to others, and 2 turns for itself. Cannot stack. |
