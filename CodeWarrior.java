@@ -16,7 +16,7 @@ public class CodeWarrior extends Adventurer{
   }
 
   public CodeWarrior(String name){
-    this(name,24);
+    this(name,100);
   }
 
   public CodeWarrior(){
