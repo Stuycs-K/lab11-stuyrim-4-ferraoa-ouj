@@ -9,6 +9,7 @@ public class Game{
   public static void main(String[] args) {
     drawBackground();
     TextBox(2, 2, 5, 5, "abcdefghijklmnopqrstuvwxyz");
+    TextBox(2, 2, 5, 5, "abcdefg");
   }
 
   //Display the borders of your screen that will not change.
@@ -59,9 +60,19 @@ public class Game{
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     for(int i = 0; i < height; i++){ //goes through all rows
-      if (text.length() > width){ //ie. abcd with a width of 3
+      if (text.length() > width){ //ie. abcd with a width of 3 | "abc"
         drawText(text.substring(0, width), row + i, col);
         text = text.substring(width);
+      }
+
+      else if (text.length() > 0){ //ie. abcd with a width of 6 | "abcd  "
+        drawText(text, row + i, col);
+        String spaces = "";
+        for(int j = 0; j < width - text.length(); j++){
+          spaces += " ";
+        }
+        drawText(spaces, row + i, col + text.length());
+        text = "";
       }
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
