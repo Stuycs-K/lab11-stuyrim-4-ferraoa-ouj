@@ -7,6 +7,7 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
+    drawBackground();
     TextBox(20, 20, 5, 5, "Hello World");
   }
 
