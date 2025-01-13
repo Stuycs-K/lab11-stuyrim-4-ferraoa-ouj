@@ -14,4 +14,10 @@ public class JavaJester extends Adventurer {
   public int getSpecialMax() {return sillinessMax;}
 
   public void setSpecial(int n) {silliness = n;}
+
+  public String attack(Adventurer other) {
+    for (int i = 0; i < 7; i++) {
+      int damage = (int) (Math.random() * 3) + 1;
+    }
+  }
 }
