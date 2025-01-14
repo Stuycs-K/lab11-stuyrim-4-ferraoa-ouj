@@ -1,6 +1,6 @@
 public class JavaJester extends Adventurer {
 
-  int sillinessMax = 12;
+  int sillinessMax = 15;
   int silliness;
 
   public JavaJester(String name) {
@@ -31,7 +31,7 @@ public class JavaJester extends Adventurer {
       restoreSpecial(2);
       restoreage = 2;
     }
-    return this + " attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " silliness " ;
+    return this + " used Recursion and attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " silliness " ;
   }
 
   public String support(Adventurer other) {
@@ -45,6 +45,22 @@ public class JavaJester extends Adventurer {
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
-    return "";
+    if (getSpecial() > 10) {
+      setSpecial(getSpecial() - 10);
+      int totalDamage = 0;
+      int counter = (int) (Math.random() * 15) + 1;
+      while (counter != 1) {
+        int damage = (int) (Math.random() * 3) + 1;
+        other.applyDamage(damage);
+        totalDamage += damage;
+        counter = (int) (Math.random() * 15) + 1;
+      }
+      return this + " used IndexOutOfBoundsException and attacked " + other
+      + " and dealt " + totalDamage + " consuming 10 silliness.";
+    }
+    else {
+      setSpecial(0);
+      return this + " tried to use IndexOutOfBoundsException but failed and lost all their silliness.";
+    }
   }
 }
