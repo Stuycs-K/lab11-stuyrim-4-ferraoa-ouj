@@ -30,7 +30,7 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 50 |
-| WealthMax | 12 |
+| CharmMax | 12 |
 | Attack: Bug in the Code | Deals 5 damage. For every 10 HP less than the max, increase damage dealt by 3. |
 | Special: Fixed Program | Restores all HP, and deals 1 damage for every 2 HP restored. Reduces 8 wealth. |
 | Support: Function Call | Gives away 5 HP to an ally, or takes 4 special from an ally to itself. |

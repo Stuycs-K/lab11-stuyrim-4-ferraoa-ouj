@@ -4,7 +4,7 @@ public class JavaJester extends Adventurer {
   int silliness;
 
   public JavaJester(String name) {
-    this(name, 80);
+    super(name, 80);
   }
 
   public String getSpecialName() {return "StackOverflow";}
@@ -16,12 +16,22 @@ public class JavaJester extends Adventurer {
   public void setSpecial(int n) {silliness = n;}
 
   public String attack(Adventurer other) {
+    int restoreage = 0;
     int totalDamage = 0;
     for (int i = 0; i < 7; i++) {
       int damage = (int) (Math.random() * 3) + 1;
-      totalDamage++;
+      totalDamage += damage;
       other.applyDamage(damage);
     }
+    if(totalDamage < 14) {
+      restoreSpecial(1);
+      restoreage = 1;
+    }
+    else {
+      restoreSpecial(2);
+      restoreage = 2;
+    }
+    return this + " attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " silliness " ;
   }
 
   public String support(Adventurer other) {
@@ -35,6 +45,6 @@ public class JavaJester extends Adventurer {
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
-    return ""
+    return "";
   }
 }
