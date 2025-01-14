@@ -55,12 +55,12 @@ public class JavaJester extends Adventurer {
         totalDamage += damage;
         counter = (int) (Math.random() * 15) + 1;
       }
-      return this + " used IndexOutOfBoundsException and attacked " + other
+      return this + " used StackOverflow and attacked " + other
       + " and dealt " + totalDamage + " consuming 10 silliness.";
     }
     else {
       setSpecial(0);
-      return this + " tried to use IndexOutOfBoundsException but failed and lost all their silliness.";
+      return this + " tried to use StackOverflow but failed and lost all their silliness.";
     }
   }
 }
