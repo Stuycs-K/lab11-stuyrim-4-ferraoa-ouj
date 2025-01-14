@@ -25,7 +25,7 @@ public class CodeWarrior extends Adventurer{
 
   /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return "caffeine";
+    return "Caffeine";
   }
 
   public int getSpecial(){

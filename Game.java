@@ -10,6 +10,16 @@ public class Game{
     drawBackground();
     TextBox(2, 2, 5, 5, "abcdefghijklmnopqrstuvwxyz");
     TextBox(2, 2, 5, 4, "1234567");
+
+    ArrayList<Adventurer> party = new ArrayList<Adventurer>();
+    CodeWarrior Bob = new CodeWarrior("abcdefghijklmnopqrstuvwxyz");
+    CodeWarrior Amy = new CodeWarrior("Amy", 10);
+    CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
+    party.add(Bob);
+    party.add(Amy);
+    party.add(Jun);
+
+    drawParty(party, 2);
   }
 
   //Display the borders of your screen that will not change.
@@ -33,7 +43,7 @@ public class Game{
       System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
     }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-    Text.reset();
+    Text.reset();    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Text.showCursor();
   }
 
@@ -58,7 +68,6 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     String spaces = "";
     for(int j = 0; j < width; j++){ //ie. width of 2 -> spaces = "  "
       spaces += " ";
@@ -79,11 +88,9 @@ public class Game{
         drawText(spaces, row + i, col);
       }
     }
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
-    //YOUR CODE HERE
-
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
     //return a random adventurer (choose between all available subclasses)
@@ -102,10 +109,12 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Text.>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
-      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      for(int i = 0; i < 3; i++){
+        Adventurer player = party.get(i);
+        TextBox(startRow + 0, 2 + 26 * i, 25, 1, player.getName());
+        TextBox(startRow + 1, 2 + 26 * i, 25, 1, "HP: " + player.getHP());
+        TextBox(startRow + 2, 2 + 26 * i, 25, 1, player.getSpecialName() + ": " + player.getSpecial());
+      }
     }
 
 
