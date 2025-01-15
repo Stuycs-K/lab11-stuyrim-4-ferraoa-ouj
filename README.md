@@ -24,7 +24,7 @@ Make a clear list of features that work/dont work
 | SillinessMax | 15 |
 | Attack: Recursion | Releases a function that does 1-3 damage per iteration for a total of 7 iterations. If total damage is less than 14, restore 1 silliness. Otherwise, restore 2 silliness.|
 | Special: StackOverflow | Releases a function that does 1-3 damage per iteration, with a 10% chance to stop after each iteration. Otherwise, it continues another iteration. Uses 10 silliness. |
-| Support: IndexOutOfBoundsException| Gives a 25% chance to dodge an enemy attack. Lasts 1 turn to others, and 2 turns for itself. Cannot stack. |
+| Support: IndexOutOfBoundsException| Restores 1/2 of the special meter of any given ally but loses the special meter of its own or restores special to max but loses 5 HP |
 
 ### Python Prince
 | Stats | Description |
@@ -32,7 +32,7 @@ Make a clear list of features that work/dont work
 | HP | 50 |
 | CharmMax | 12 |
 | Attack: Bug in the Code | Deals 5 damage. For every 10 HP less than the max, increase damage dealt by 3. |
-| Special: Fixed Program | Restores all HP, and deals 1 damage for every 2 HP restored. Reduces 8 wealth. |
+| Special: Fixed Program | Restores all HP, and deals 1 damage for every 2 HP restored. Reduces 8 charm. |
 | Support: Function Call | Gives away 5 HP to an ally, or takes 4 special from an ally to itself. |
 
 ### Code Warrior
@@ -42,7 +42,7 @@ Make a clear list of features that work/dont work
 | CaffeineMax | 12 |
 | Attack: Basic Strike | Deals 7-16 damage, restores 2 caffeine. |
 | Special: Caffeine Overdose | Deals 15-30 damage, reduces 8 caffeine. |
-| Support: Daily Coffee | Gives a cup of coffee. Restores 5 HP to other. Restores 6 caffeine and 5 hp to self. |
+| Support: Daily Coffee | Gives a cup of coffee. Restores 20 HP to other. Restores 6 caffeine and 10 hp to self. |
 
 
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
