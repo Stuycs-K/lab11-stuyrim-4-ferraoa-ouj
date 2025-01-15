@@ -35,19 +35,16 @@ public class JavaJester extends Adventurer {
   }
 
   public String support(Adventurer other) {
-    int returner;
-    double allyMeter = (double) other.getSpecial();
-    if (allyMeter < (1.0/2.0) * other.getSpecialMax()) {
-      int twoThirds = (int) (1.0/2.0) * other.getSpecialMax();
-      returner = twoThirds;
-      other.setSpecial(other.getSpecial() + twoThirds);
+    int original = other.getSpecial();
+    int half = other.getSpecialMax() / 2;
+    if (other.getSpecial() < half) {
+      other.restoreSpecial(half);
     }
     else {
       other.setSpecial(other.getSpecialMax());
-      returner = getSpecialMax;
     }
     this.setSpecial(0);
-    return this + " used IndexOutOfBoundsException and restored " + returner + " special to " + other;
+    return this + " used IndexOutOfBoundsException and restored " + other + "'s special from " + original + " to " + other.getSpecial();
   }
 
   //heal or buff self
