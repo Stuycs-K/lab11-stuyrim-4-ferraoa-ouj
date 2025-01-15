@@ -16,12 +16,15 @@ public class Game{
     party.add(Jun);
 
     ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
-    CodeWarrior Evildoer = new CodeWarrior("Evildoer");
-    CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
-    CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
-    enemies.add(Evildoer);
-    enemies.add(Baddie);
-    enemies.add(Villian);
+    // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
+    // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
+    // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
+    // enemies.add(Evildoer);
+    // enemies.add(Baddie);
+    // enemies.add(Villian);
+
+    CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddie");
+    enemies.add(BigBadBaddie);
 
     drawScreen(party, enemies);
   }
@@ -113,7 +116,7 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-      for(int i = 0; i < 3; i++){
+      for(int i = 0; i < 3 && i < party.size(); i++){
         Adventurer player = party.get(i);
         TextBox(startRow + 0, 2 + 26 * i, 25, 1, player.getName());
         TextBox(startRow + 1, 2 + 26 * i, 25, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
