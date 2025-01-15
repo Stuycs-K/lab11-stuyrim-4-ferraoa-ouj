@@ -7,10 +7,6 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    drawBackground();
-    TextBox(2, 2, 5, 5, "abcdefghijklmnopqrstuvwxyz");
-    TextBox(2, 2, 5, 4, "1234567");
-
     ArrayList<Adventurer> party = new ArrayList<Adventurer>();
     CodeWarrior Bob = new CodeWarrior("abcdefghijklmnopqrstuvwxyz");
     CodeWarrior Amy = new CodeWarrior("Amy", 10);
@@ -19,7 +15,15 @@ public class Game{
     party.add(Amy);
     party.add(Jun);
 
-    drawParty(party, 2);
+    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    CodeWarrior Evildoer = new CodeWarrior("Evildoer");
+    CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
+    CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
+    enemies.add(Evildoer);
+    enemies.add(Baddie);
+    enemies.add(Villian);
+
+    drawScreen(party, enemies);
   }
 
   //Display the borders of your screen that will not change.
@@ -145,14 +149,14 @@ public class Game{
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
-  public static void drawScreen(){
+  public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
     drawBackground();
 
     //draw player party
-
+    drawParty(party, 2);
     //draw enemy party
-
+    drawParty(enemies, 25);
   }
 
   public static String userInput(Scanner in){
@@ -205,7 +209,7 @@ public class Game{
       //Draw the window border
 
       //You can add parameters to draw screen!
-      drawScreen();//initial state.
+      drawScreen(party, enemies);//initial state.
 
       //Main loop
 
@@ -291,7 +295,7 @@ public class Game{
         }
 
         //display the updated screen after input has been processed.
-        drawScreen();
+        drawScreen(party, enemies);
 
 
       }//end of main game loop
