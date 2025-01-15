@@ -121,7 +121,7 @@ public class Game{
         TextBox(startRow + 0, 2 + 26 * i, 25, 1, player.getName());
         TextBox(startRow + 1, 2 + 26 * i, 25, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
         Text.reset();
-        TextBox(startRow + 2, 2 + 26 * i, 25, 1, player.getSpecialName() + ": " + player.getSpecial());
+        TextBox(startRow + 2, 2 + 26 * i, 25, 1, player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
       }
     }
 
