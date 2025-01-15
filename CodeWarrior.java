@@ -67,12 +67,13 @@ public class CodeWarrior extends Adventurer{
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
+    other.setHP(other.getHP() + 20);
     return "Gives a coffee to "+other+" and restores "
-    + other.setHP(other.getHP() + 5)+" HP";
+    + other.getHP() +" HP";
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
-    int hp = 1;
+    int hp = 10;
     setHP(getHP()+hp);
     return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
     + getSpecialName()+ " and "+hp+" HP";
