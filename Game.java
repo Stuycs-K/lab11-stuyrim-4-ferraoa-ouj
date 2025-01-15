@@ -160,6 +160,9 @@ public class Game{
     drawParty(party, 2);
     //draw enemy party
     drawParty(enemies, 25);
+
+    //places cursor at input place
+    Text.go(29, 2);
   }
 
   public static String userInput(Scanner in){
