@@ -113,6 +113,7 @@ public class Game{
         Adventurer player = party.get(i);
         TextBox(startRow + 0, 2 + 26 * i, 25, 1, player.getName());
         TextBox(startRow + 1, 2 + 26 * i, 25, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
+        Text.reset();
         TextBox(startRow + 2, 2 + 26 * i, 25, 1, player.getSpecialName() + ": " + player.getSpecial());
       }
     }
@@ -129,7 +130,12 @@ public class Game{
     if (percent < 0.25){
       return Text.colorize(output, Text.RED);
     }
-    return output;
+    else if (percent < 0.75){
+      return Text.colorize(output, Text.YELLOW);
+    }
+    else{
+      return output;
+    }
   }
 
 
