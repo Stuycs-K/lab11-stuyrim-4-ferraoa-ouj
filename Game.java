@@ -7,28 +7,28 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    // ArrayList<Adventurer> party = new ArrayList<Adventurer>();
-    // CodeWarrior Bob = new CodeWarrior("abcdefghijklmnopqrstuvwxyz");
-    // CodeWarrior Amy = new CodeWarrior("Amy", 10);
-    // CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
-    // party.add(Bob);
-    // party.add(Amy);
-    // party.add(Jun);
-    //
-    // ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
-    // // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
-    // // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
-    // // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
-    // // enemies.add(Evildoer);
-    // // enemies.add(Baddie);
-    // // enemies.add(Villian);
-    //
-    // CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddie");
-    // enemies.add(BigBadBaddie);
-    //
-    // drawScreen(party, enemies);
+    ArrayList<Adventurer> party = new ArrayList<Adventurer>();
+    CodeWarrior Bob = new CodeWarrior("Bob");
+    CodeWarrior Amy = new CodeWarrior("Amy", 10);
+    CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
+    CodeWarrior Aydan = new CodeWarrior("Why are there up to four adventurers :/");
+    party.add(Bob);
+    party.add(Amy);
+    party.add(Jun);
+    party.add(Aydan);
 
-    run();
+    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
+    // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
+    // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
+    // enemies.add(Evildoer);
+    // enemies.add(Baddie);
+    // enemies.add(Villian);
+
+    CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddieDoingBigBadThingsLikeHavingABigBadNameLikeReallyLongLikeCrazyLongThatItShouldntFit");
+    enemies.add(BigBadBaddie);
+
+    drawScreen(party, enemies);
   }
 
   //Display the borders of your screen that will not change.
@@ -118,12 +118,13 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-      for(int i = 0; i < 3 && i < party.size(); i++){
+      for(int i = 0; i < party.size(); i++){
         Adventurer player = party.get(i);
-        TextBox(startRow + 0, 2 + 26 * i, 25, 1, player.getName());
-        TextBox(startRow + 1, 2 + 26 * i, 25, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
+        int spacing = 78 / party.size();
+        TextBox(startRow + 0, 2 + spacing * i, spacing - 1, 1, player.getName());
+        TextBox(startRow + 1, 2 + spacing * i, spacing - 1, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
         Text.reset();
-        TextBox(startRow + 2, 2 + 26 * i, 25, 1, player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
+        TextBox(startRow + 2, 2 + spacing * i, spacing - 1, 1, player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
       }
     }
 
