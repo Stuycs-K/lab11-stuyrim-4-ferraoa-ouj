@@ -49,7 +49,9 @@ public class JavaJester extends Adventurer {
 
   //heal or buff self
   public String support() {
-    return "";
+    this.setSpecial(this.getSpecialMax());
+    this.applyDamage(5);
+    return this + " used IndexOutOfBoundsException and restored its special to max but lost 5 HP.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
