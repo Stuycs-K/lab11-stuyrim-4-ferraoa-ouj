@@ -1,19 +1,19 @@
 public class JavaJester extends Adventurer {
 
-  int sillinessMax = 15;
-  int silliness = 0;
+  int charmMax = 20;
+  int charm = 0;
 
-  public JavaJester(String name) {
-    super(name, 80);
+  public PythonPrince(String name) {
+    super(name, 50);
   }
 
   public String getSpecialName() {return "StackOverflow";}
 
-  public int getSpecial() {return silliness;}
+  public int getSpecial() {return charm;}
 
-  public int getSpecialMax() {return sillinessMax;}
+  public int getSpecialMax() {return charmMax;}
 
-  public void setSpecial(int n) {silliness = n;}
+  public void setSpecial(int n) {charm = n;}
 
   public String attack(Adventurer other) {
     int restoreage = 0;
@@ -22,7 +22,7 @@ public class JavaJester extends Adventurer {
       int damage = (int) (Math.random() * 3) + 1;
       totalDamage += damage;
       other.applyDamage(damage);
-    }
+    }80
     if(totalDamage < 14) {
       restoreSpecial(1);
       restoreage = 1;
@@ -31,7 +31,7 @@ public class JavaJester extends Adventurer {
       restoreSpecial(2);
       restoreage = 2;
     }
-    return this + " used Recursion and attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " silliness " ;
+    return this + " used Recursion and attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " charm " ;
   }
 
   public String support(Adventurer other) {
@@ -67,11 +67,11 @@ public class JavaJester extends Adventurer {
         counter = (int) (Math.random() * 15) + 1;
       }
       return this + " used StackOverflow and attacked " + other
-      + " and dealt " + totalDamage + " consuming 10 silliness.";
+      + " and dealt " + totalDamage + " consuming 10 charm.";
     }
     else {
       setSpecial(0);
-      return this + " tried to use StackOverflow but failed and lost all their silliness.";
+      return this + " tried to use StackOverflow but failed and lost all their charm.";
     }
   }
 }
