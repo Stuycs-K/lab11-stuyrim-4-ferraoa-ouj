@@ -16,22 +16,9 @@ public class JavaJester extends Adventurer {
   public void setSpecial(int n) {charm = n;}
 
   public String attack(Adventurer other) {
-    int restoreage = 0;
-    int totalDamage = 0;
-    for (int i = 0; i < 7; i++) {
-      int damage = (int) (Math.random() * 3) + 1;
-      totalDamage += damage;
-      other.applyDamage(damage);
-    }80
-    if(totalDamage < 14) {
-      restoreSpecial(1);
-      restoreage = 1;
-    }
-    else {
-      restoreSpecial(2);
-      restoreage = 2;
-    }
-    return this + " used Recursion and attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " charm " ;
+    int damage = this.getmaxHP() - this.getHP();
+    other.applyDamage(damage);
+    return this + " used Bug in the Code and dealt " + damage + " damage to " + other;
   }
 
   public String support(Adventurer other) {
