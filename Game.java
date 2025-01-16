@@ -7,26 +7,28 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    ArrayList<Adventurer> party = new ArrayList<Adventurer>();
-    CodeWarrior Bob = new CodeWarrior("abcdefghijklmnopqrstuvwxyz");
-    CodeWarrior Amy = new CodeWarrior("Amy", 10);
-    CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
-    party.add(Bob);
-    party.add(Amy);
-    party.add(Jun);
+    // ArrayList<Adventurer> party = new ArrayList<Adventurer>();
+    // CodeWarrior Bob = new CodeWarrior("abcdefghijklmnopqrstuvwxyz");
+    // CodeWarrior Amy = new CodeWarrior("Amy", 10);
+    // CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
+    // party.add(Bob);
+    // party.add(Amy);
+    // party.add(Jun);
+    //
+    // ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    // // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
+    // // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
+    // // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
+    // // enemies.add(Evildoer);
+    // // enemies.add(Baddie);
+    // // enemies.add(Villian);
+    //
+    // CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddie");
+    // enemies.add(BigBadBaddie);
+    //
+    // drawScreen(party, enemies);
 
-    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
-    // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
-    // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
-    // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
-    // enemies.add(Evildoer);
-    // enemies.add(Baddie);
-    // enemies.add(Villian);
-
-    CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddie");
-    enemies.add(BigBadBaddie);
-
-    drawScreen(party, enemies);
+    run();
   }
 
   //Display the borders of your screen that will not change.
@@ -107,7 +109,7 @@ public class Game{
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
-    *Should include Name HP and Special on 3 separate lines.
+    *Should include Name HP and Special on 3 separate lines.Text.go(29, 2);
     *Note there is one blank row reserved for your use if you choose.
     *Format:
     *Bob          Amy        Jun
@@ -167,12 +169,15 @@ public class Game{
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-
+      Text.go(29, 2);
       //show cursor
+      Text.showCursor();
 
       String input = in.nextLine();
 
       //clear the text that was written
+      TextBox(29, 2, 78, 1, "                                                       ");
+      Text.hideCursor();
 
       return input;
   }
