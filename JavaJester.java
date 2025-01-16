@@ -1,7 +1,7 @@
 public class JavaJester extends Adventurer {
 
   int sillinessMax = 15;
-  int silliness;
+  int silliness = 0;
 
   public JavaJester(String name) {
     super(name, 80);
