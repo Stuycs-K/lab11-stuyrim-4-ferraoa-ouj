@@ -7,28 +7,29 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    ArrayList<Adventurer> party = new ArrayList<Adventurer>();
-    CodeWarrior Bob = new CodeWarrior("Bob");
-    CodeWarrior Amy = new CodeWarrior("Amy", 10);
-    CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
-    CodeWarrior Aydan = new CodeWarrior("Why are there up to four adventurers :/");
-    party.add(Bob);
-    party.add(Amy);
-    party.add(Jun);
-    party.add(Aydan);
-
-    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
-    // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
-    // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
-    // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
-    // enemies.add(Evildoer);
-    // enemies.add(Baddie);
-    // enemies.add(Villian);
-
-    CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddieDoingBigBadThingsLikeHavingABigBadNameLikeReallyLongLikeCrazyLongThatItShouldntFit");
-    enemies.add(BigBadBaddie);
-
-    drawScreen(party, enemies);
+    // ArrayList<Adventurer> party = new ArrayList<Adventurer>();
+    // CodeWarrior Bob = new CodeWarrior("Bob");
+    // CodeWarrior Amy = new CodeWarrior("Amy", 10);
+    // CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
+    // CodeWarrior Aydan = new CodeWarrior("Why are there up to four adventurers :/");
+    // party.add(Bob);
+    // party.add(Amy);
+    // party.add(Jun);
+    // party.add(Aydan);
+    //
+    // ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    // // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
+    // // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
+    // // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
+    // // enemies.add(Evildoer);
+    // // enemies.add(Baddie);
+    // // enemies.add(Villian);
+    //
+    // CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddieDoingBigBadThingsLikeHavingABigBadNameLikeReallyLongLikeCrazyLongThatItShouldntFit");
+    // enemies.add(BigBadBaddie);
+    //
+    // drawScreen(party, enemies);
+    run();
   }
 
   //Display the borders of your screen that will not change.
@@ -154,13 +155,14 @@ public class Game{
 
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
-  //Place the cursor at the place where the user will by typing their input at the end of this method.
+  //Place the cursor at the place where the user will by typing their input at the end it should be the boss class.of this method.
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
     drawBackground();
 
     //draw player party
     drawParty(party, 2);
+
     //draw enemy party
     drawParty(enemies, 25);
 
@@ -177,7 +179,7 @@ public class Game{
       String input = in.nextLine();
 
       //clear the text that was written
-      TextBox(29, 2, 78, 1, "                                                       ");
+      TextBox(29, 2, 78, 1, "testing");
       Text.hideCursor();
 
       return input;
@@ -202,14 +204,22 @@ public class Game{
       //start with 1 boss and modify the code to allow 2-3 adventurers later.
       ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
+      int enemyNum = (int) (Math.random() * 3);
+      for(int i = 0; i <= enemyNum; i++){
+        enemies.add(createRandomAdventurer());
+      }
+      System.out.println(enemies);
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
       //Adventurers you control:
       //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
       ArrayList<Adventurer> party = new ArrayList<>();
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
+      int partyNum = (int) (Math.random() * 3) + 1;
+      for(int i = 0; i <= partyNum; i++){
+        party.add(createRandomAdventurer());
+      }
+      System.out.println(party);
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
       boolean partyTurn = true;
