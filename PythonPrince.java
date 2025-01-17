@@ -1,4 +1,4 @@
-public class JavaJester extends Adventurer {
+public class PythonPrince extends Adventurer {
 
   int charmMax = 20;
   int charm = 0;
