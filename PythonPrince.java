@@ -1,5 +1,7 @@
 public class PythonPrince extends Adventurer {
-
+  
+  boolean selfSupport = false;
+  boolean otherSupport = false;
   int charmMax = 20;
   int charm = 0;
 
@@ -17,7 +19,12 @@ public class PythonPrince extends Adventurer {
 
   public String attack(Adventurer other) {
     int damage = this.getmaxHP() - this.getHP();
+    if (selfSupport || otherSupport) { 
+      other.applyDamage(1.5 * damage);
+    }
     other.applyDamage(damage);
+    selfSupport = false;
+    otherSupport = false;
     return this + " used Bug in the Code and dealt " + damage + " damage to " + other;
   }
 
@@ -31,14 +38,15 @@ public class PythonPrince extends Adventurer {
       other.setSpecial(other.getSpecialMax());
     }
     this.setSpecial(0);
-    return this + " used IndexOutOfBoundsException and restored " + other + "'s special from " + original + " to " + other.getSpecial();
+    return this + " used Function Call and acquired a strength potion from " + 
+    other + ", who lost 5 HP but " + this  + " will do 1.5x damage on next turn.";
   }
 
   //heal or buff self
   public String support() {
     this.setSpecial(this.getSpecialMax());
     this.applyDamage(5);
-    return this + " used IndexOutOfBoundsException and restored its special to max but lost 5 HP.";
+    return this + " used Function Call and drank its own strength potion, losing 10HP but doing 1.5x damage";
   }
 
   //hurt or hinder the target adventurer, consume some special resource

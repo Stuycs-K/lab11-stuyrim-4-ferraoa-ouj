@@ -30,10 +30,10 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 50 |
-| CharmMax | 12 |
+| CharmMax | 10 |
 | Attack: Bug in the Code | Deals 1 damage for every HP less than the max |
-| Special: Fixed Program | Restores all HP, and deals 1 damage for every 2 HP restored. Reduces 8 charm. |
-| Support: Function Call | Gives away 5 HP to an ally, or takes 4 special from an ally to itself. |
+| Special: Fixed Program | Restores all HP, and deals 1 damage for every 2 HP restored. Reduces 7 charm. |
+| Support: Function Call | Takes 5 HP from ally to deal 1.5x damage, or loses 10HP to deal 1.5x damage to enemy on next turn. Does not work with special and does not stack |
 
 ### Code Warrior
 | Stats | Description |
