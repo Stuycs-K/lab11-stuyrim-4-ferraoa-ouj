@@ -1,9 +1,8 @@
 public class PythonPrince extends Adventurer {
   
-  boolean selfSupport = false;
-  boolean otherSupport = false;
-  int charmMax = 20;
-  int charm = 0;
+  boolean support = false;
+  int charmMax = 10;
+  int charm = 7;
 
   public PythonPrince(String name) {
     super(name, 50);
@@ -17,36 +16,36 @@ public class PythonPrince extends Adventurer {
 
   public void setSpecial(int n) {charm = n;}
 
+  public boolean getSupport() {return support;}
+
   public String attack(Adventurer other) {
-    int damage = this.getmaxHP() - this.getHP();
-    if (selfSupport || otherSupport) { 
-      other.applyDamage(1.5 * damage);
+    double damage = (double) this.getmaxHP() - this.getHP();
+    if (support) {
+      damage = 1.5 * damage;
+      other.applyDamage((int) damage);
+      this.restoreSpecial(2)
     }
-    other.applyDamage(damage);
-    selfSupport = false;
-    otherSupport = false;
-    return this + " used Bug in the Code and dealt " + damage + " damage to " + other;
+    else {
+      other.applyDamage((int) damage);
+      this.restoreSpecial(1);
+    }
+
+    support = false;
+    return this + " used Bug in the Code and dealt " + (int) damage + " damage to " + other;
   }
 
   public String support(Adventurer other) {
-    int original = other.getSpecial();
-    int half = other.getSpecialMax() / 2;
-    if (other.getSpecial() < half) {
-      other.restoreSpecial(half);
-    }
-    else {
-      other.setSpecial(other.getSpecialMax());
-    }
-    this.setSpecial(0);
+    other.applyDamage(10);
+    support = true;
     return this + " used Function Call and acquired a strength potion from " + 
-    other + ", who lost 5 HP but " + this  + " will do 1.5x damage on next turn.";
+    other + ", who lost 10 HP but " + this  + " will do 1.5x damage on next turn.";
   }
 
   //heal or buff self
   public String support() {
-    this.setSpecial(this.getSpecialMax());
-    this.applyDamage(5);
-    return this + " used Function Call and drank its own strength potion, losing 10HP but doing 1.5x damage";
+    this.applyDamage(10);
+    support = true;
+    return this + " used Function Call and drank its own strength potion, losing 10HP but does 1.5x damage on next turn";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
