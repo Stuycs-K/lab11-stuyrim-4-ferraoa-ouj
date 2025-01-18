@@ -23,7 +23,6 @@ public class PythonPrince extends Adventurer {
     if (support) {
       damage = 1.5 * damage;
       other.applyDamage((int) damage);
-      this.restoreSpecial(2)
     }
     else {
       other.applyDamage((int) damage);
@@ -31,13 +30,13 @@ public class PythonPrince extends Adventurer {
     }
 
     support = false;
-    return this + " used Bug in the Code and dealt " + (int) damage + " damage to " + other;
+    return this + " used Static Method and dealt " + (int) damage + " damage to " + other;
   }
 
   public String support(Adventurer other) {
     other.applyDamage(10);
     support = true;
-    return this + " used Function Call and acquired a strength potion from " + 
+    return this + " used Overwrite and acquired a strength potion from " + 
     other + ", who lost 10 HP but " + this  + " will do 1.5x damage on next turn.";
   }
 
@@ -45,27 +44,20 @@ public class PythonPrince extends Adventurer {
   public String support() {
     this.applyDamage(10);
     support = true;
-    return this + " used Function Call and drank its own strength potion, losing 10HP but does 1.5x damage on next turn";
+    return this + " used Overwrite and drank its own strength potion, losing 10HP but does 1.5x damage on next turn";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
-    if (getSpecial() > 10) {
-      setSpecial(getSpecial() - 10);
-      int totalDamage = 0;
-      int counter = (int) (Math.random() * 15) + 1;
-      while (counter != 1) {
-        int damage = (int) (Math.random() * 3) + 1;
-        other.applyDamage(damage);
-        totalDamage += damage;
-        counter = (int) (Math.random() * 15) + 1;
-      }
-      return this + " used StackOverflow and attacked " + other
-      + " and dealt " + totalDamage + " consuming 10 charm.";
+    if (getSpecial() > 7) {
+      setSpecial(getSpecial() - 7);
+      this.attack(other);
+      this.setHP(this.getmaxHP());
+      return this + " used Class Method and attacked " + other
+      + " and dealt " + this.getmaxHPmaxHP() - this.getHPHP() + " restoring HP to max and consuming 7 charm.";
     }
     else {
-      setSpecial(0);
-      return this + " tried to use StackOverflow but failed and lost all their charm.";
+      return this + " tried to use Class Method but failed and lost turn.";
     }
   }
 }
