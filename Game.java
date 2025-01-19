@@ -222,7 +222,7 @@ public class Game{
         input = userInput(in);
 
         //example debug statment
-        TextBox(24,2,78,1,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+        TextBox(23,2,78,1,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
         //display event based on last turn's input
         if(partyTurn){
@@ -232,20 +232,29 @@ public class Game{
             /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
             int target = Integer.parseInt(input.substring(input.length() - 1));
             String userOutput = party.get(whichPlayer).attack(enemies.get(target));
-            TextBox(24, 69, 9, 1, "target:" + target);
-            TextBox(7, 2, 78, 5, userOutput);
+            TextBox(6, 2, 78, 5, userOutput);
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           }
           else if(input.startsWith("special ") || input.startsWith("sp ")){
             /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-            //YOUR CODE HERE
+            int target = Integer.parseInt(input.substring(input.length() - 1));
+            String userOutput = party.get(whichPlayer).specialAttack(enemies.get(target));
+            TextBox(6, 2, 78, 5, userOutput);
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           }
           else if(input.startsWith("su ") || input.startsWith("support ")){
             //"support 0" or "su 0" or "su 2" etc.
             //assume the value that follows su  is an integer.
             /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-            //YOUR CODE HERE
+            int target = Integer.parseInt(input.substring(input.length() - 1));
+            if (target == whichPlayer){
+              String userOutput = party.get(whichPlayer).support();
+              TextBox(6, 2, 78, 5, userOutput);
+            }
+            else{
+              String userOutput = party.get(whichPlayer).support(enemies.get(target));
+              TextBox(6, 2, 78, 5, userOutput);
+            }
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           }
 
@@ -258,7 +267,7 @@ public class Game{
             //This is a player turn.
             //Decide where to draw the following prompt:
             String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
-            TextBox(6, 2, 78, 1, prompt);
+            TextBox(10, 2, 78, 1, prompt);
 
 
           }else{
