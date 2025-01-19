@@ -7,28 +7,6 @@ public class Game{
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
   public static void main(String[] args) {
-    // ArrayList<Adventurer> party = new ArrayList<Adventurer>();
-    // CodeWarrior Bob = new CodeWarrior("Bob");
-    // CodeWarrior Amy = new CodeWarrior("Amy", 10);
-    // CodeWarrior Jun = new CodeWarrior("Jun", 200000000);
-    // CodeWarrior Aydan = new CodeWarrior("Why are there up to four adventurers :/");
-    // party.add(Bob);
-    // party.add(Amy);
-    // party.add(Jun);
-    // party.add(Aydan);
-    //
-    // ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
-    // // CodeWarrior Evildoer = new CodeWarrior("Evildoer");
-    // // CodeWarrior Baddie = new CodeWarrior("Baddie", 10);
-    // // CodeWarrior Villian = new CodeWarrior("Villian", 200000000);
-    // // enemies.add(Evildoer);
-    // // enemies.add(Baddie);
-    // // enemies.add(Villian);
-    //
-    // CodeWarrior BigBadBaddie = new CodeWarrior("BigBadBaddieDoingBigBadThingsLikeHavingABigBadNameLikeReallyLongLikeCrazyLongThatItShouldntFit");
-    // enemies.add(BigBadBaddie);
-    //
-    // drawScreen(party, enemies);
     run();
   }
 
@@ -150,10 +128,8 @@ public class Game{
 
   //Display the party and enemies
   //Do not write over the blank areas where text will appear.
-  //Place the cursor at the place where the user will by typing their input at the end it should be the boss class.of this method.
+  //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
-
-    drawBackground();
 
     //draw player party
     drawParty(party, 2);
@@ -174,7 +150,9 @@ public class Game{
       String input = in.nextLine();
 
       //clear the text that was written
-      TextBox(29, 2, 78, 1, "testing");
+      String spaces = "                                                                    ";
+      TextBox(29, 2, 78, 1, spaces);
+
       Text.hideCursor();
 
       return input;
@@ -191,6 +169,7 @@ public class Game{
       //Clear and initialize
       Text.hideCursor();
       Text.clear();
+      drawBackground();
 
 
       //Things to attack:
@@ -208,7 +187,6 @@ public class Game{
         for(int i = 0; i < enemyNum; i++){
           enemies.add(createRandomAdventurer());
         }
-        System.out.println(enemies);
       }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
@@ -220,7 +198,6 @@ public class Game{
       for(int i = 0; i < partyNum; i++){
         party.add(createRandomAdventurer());
       }
-      System.out.println(party);
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
       boolean partyTurn = true;
@@ -237,25 +214,29 @@ public class Game{
       //Main loop
 
       //display this prompt at the start of the game.
-      String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+      String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+      TextBox(6, 2, 78, 1, preprompt);
 
       while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
         //Read user input
         input = userInput(in);
 
         //example debug statment
-        TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+        TextBox(24,2,78,1,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
         //display event based on last turn's input
         if(partyTurn){
 
           //Process user input for the last Adventurer:
-          if(input.equals("attack") || input.equals("a")){
+          if(input.startsWith("attack ") || input.startsWith("a ")){
             /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-            //YOUR CODE HERE
+            int target = Integer.parseInt(input.substring(input.length() - 1));
+            String userOutput = party.get(whichPlayer).attack(enemies.get(target));
+            TextBox(24, 69, 9, 1, "target:" + target);
+            TextBox(7, 2, 78, 5, userOutput);
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           }
-          else if(input.equals("special") || input.equals("sp")){
+          else if(input.startsWith("special ") || input.startsWith("sp ")){
             /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
             //YOUR CODE HERE
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -276,7 +257,8 @@ public class Game{
           if(whichPlayer < party.size()){
             //This is a player turn.
             //Decide where to draw the following prompt:
-            String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+            String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+            TextBox(6, 2, 78, 1, prompt);
 
 
           }else{
