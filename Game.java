@@ -36,7 +36,7 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     Text.clear();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    
     Text.go(0,0);
     for(int i = 0; i < WIDTH; i++){ // Column 1
       System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
@@ -52,19 +52,16 @@ public class Game{
     for(int i = 0; i < WIDTH; i++){
       System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
     }
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-    Text.reset();    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    Text.showCursor();
+    
+    Text.reset();    
   }
 
   //Display a line of text starting at
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Text.go(startRow, startCol);
     System.out.print(s);
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
   /*Use this method to place text on the screen at a particular location.
@@ -99,8 +96,6 @@ public class Game{
       }
     }
   }
-
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
 
     //return a random adventurer (choose between all available subclasses)
@@ -202,21 +197,27 @@ public class Game{
       //Make an ArrayList of Adventurers and add 1-3 enemies to it.
       //If only 1 enemy is added it should be the boss class.
       //start with 1 boss and modify the code to allow 2-3 adventurers later.
-      ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
+      ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      int enemyNum = (int) (Math.random() * 3);
-      for(int i = 0; i <= enemyNum; i++){
-        enemies.add(createRandomAdventurer());
+      int enemyNum = (int) (Math.random() * 3) + 1;
+      if (enemyNum == 1){
+        JavaJester BossyBoss = new JavaJester("Bossy Boss"); //NOTE: change when Boss adventurer is added
+        enemies.add(BossyBoss);
       }
-      System.out.println(enemies);
+      else{
+        for(int i = 0; i < enemyNum; i++){
+          enemies.add(createRandomAdventurer());
+        }
+        System.out.println(enemies);
+      }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
       //Adventurers you control:
       //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
       ArrayList<Adventurer> party = new ArrayList<>();
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      int partyNum = (int) (Math.random() * 3) + 1;
-      for(int i = 0; i <= partyNum; i++){
+      int partyNum = (int) (Math.random() * 3) + 2;
+      for(int i = 0; i < partyNum; i++){
         party.add(createRandomAdventurer());
       }
       System.out.println(party);
