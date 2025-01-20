@@ -203,6 +203,7 @@ public class Game{
       int whichPlayer = 0;
       int whichOpponent = 0;
       int turn = 0;
+      boolean hasDeath = false;
       String input = "";//blank to get into the main loop.
       Scanner in = new Scanner(System.in);
       //Draw the window border
@@ -340,16 +341,26 @@ public class Game{
 
         //display the updated screen after input has been processed.
         //when HP goes to or below 0, the adventurer dies.
+
+        if (hasDeath == true){ //triggers 1 turn after someone died
+          TextBox(15, 2, 78, 1, ""); //removes death prompt
+          hasDeath = false;
+        }
+        
         for(int i = 0; i < party.size(); i++){ //checks party
           if(party.get(i).getHP() <= 0){
             TextBox(15, 2, 78, 1, party.get(i) + " died!");
+            TextBox(2, 2, 78, 3, "");
             party.remove(i);
+            hasDeath = true;
           }
         }
         for(int i = 0; i < enemies.size(); i++){ //checks enemies
           if(enemies.get(i).getHP() <= 0){
             TextBox(15, 2, 78, 1, enemies.get(i) + " died!");
+            TextBox(25, 2, 78, 3, "");
             enemies.remove(i);
+            hasDeath = true;
           }
         }
 
