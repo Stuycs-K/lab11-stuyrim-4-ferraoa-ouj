@@ -352,6 +352,7 @@ public class Game{
             enemies.remove(i);
           }
         }
+        
         drawScreen(party, enemies);
 
 
