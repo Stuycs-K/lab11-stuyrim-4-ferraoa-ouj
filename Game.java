@@ -92,12 +92,15 @@ public class Game{
         }
       }
       else{
-        int randint = (int)(Math.random() * 2); //0 = Sharpshooter, 1 = Tank
+        int randint = (int)(Math.random() * 3); //0 = Sharpshooter, 1 = Tank, 2 = SwordsMachine
         if(randint == 0){
           return new EnemySharpshooter("Sam"+(int)(Math.random()*100));
         }
-        else{
+        else if (randint == 1){
           return new EnemyTank("Tick"+(int)(Math.random()*100));
+        }
+        else{
+          return new EnemySwordsMachine("Spike"+(int)(Math.random()*100));
         }
       }
       
@@ -251,9 +254,6 @@ public class Game{
           input = userInput(in);
         }
         TextBox(7, 2, 78, 1, "");
-
-        //example debug statment
-        TextBox(23,2,78,1,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
         //display event based on last turn's input
         if(partyTurn){

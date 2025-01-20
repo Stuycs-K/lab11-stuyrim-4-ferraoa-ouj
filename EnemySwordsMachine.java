@@ -13,9 +13,9 @@ public class EnemySwordsMachine extends Enemy {
     public String support() {
         int currentHP = this.getHP();
         if (currentHP + gluttony >= this.getmaxHP()) {
-            this.setHP(this.getmaxHP);
+            this.setHP(this.getmaxHP());
             gluttony = 0;
-            return this + " relished on the damage it dealt and healed " + (this.getmaxHP() - currentHP) + " HP."
+            return this + " relished on the damage it dealt and healed " + (this.getmaxHP() - currentHP) + " HP.";
         }
         else { 
             this.setHP(currentHP + gluttony);
@@ -27,6 +27,6 @@ public class EnemySwordsMachine extends Enemy {
     public String attack(Adventurer other) {
         other.applyDamage(20);
         gluttony += 10;
-        return this " attacked " + other + " and dealt 20 damage.";
+        return this + " attacked " + other + " and dealt 20 damage.";
     }
 }
