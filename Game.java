@@ -83,7 +83,7 @@ public class Game{
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
-    *Should include Name HP and Special on 3 separate lines.Text.go(29, 2);
+    *Should include Name HP and Special on 3 separate lines.
     *Note there is one blank row reserved for your use if you choose.
     *Format:
     *Bob          Amy        Jun
@@ -96,7 +96,7 @@ public class Game{
         Adventurer player = party.get(i);
         int spacing = 78 / party.size();
         TextBox(startRow + 0, 2 + spacing * i, spacing - 1, 1, player.getName());
-        TextBox(startRow + 1, 2 + spacing * i, spacing - 1, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
+        TextBox(startRow + 1, 2 + spacing * i, spacing - 1, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()) + "   ");
         Text.reset();
         TextBox(startRow + 2, 2 + spacing * i, spacing - 1, 1, player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
       }
@@ -214,7 +214,7 @@ public class Game{
       //Main loop
 
       //display this prompt at the start of the game.
-      String preprompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit", Text.GREEN);
+      String preprompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);
       TextBox(6, 2, 78, 1, preprompt+"                                                               ");
 
       while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
@@ -266,7 +266,7 @@ public class Game{
           if(whichPlayer < party.size()){
             //This is a player turn.
             //Decide where to draw the following prompt:
-            String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit", Text.GREEN);;
+            String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);;
             TextBox(6, 2, 78, 1, prompt+"                                                  ");
 
 
@@ -335,13 +335,11 @@ public class Game{
           turn++;
           partyTurn=true;
           //display this prompt before player's turn
-          String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit", Text.GREEN);
+          String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);
           TextBox(6, 2, 78, 1, prompt+"                                                                           ");
         }
 
-        //display the updated screen after input has been processed.
         //when HP goes to or below 0, the adventurer dies.
-
         if (hasDeath == true){ //triggers 1 turn after someone died
           TextBox(15, 2, 78, 1, ""); //removes death prompt
           hasDeath = false;
@@ -353,17 +351,27 @@ public class Game{
             TextBox(2, 2, 78, 3, "");
             party.remove(i);
             hasDeath = true;
+            if(party.size() > 0 && partyTurn){ 
+              String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);
+              TextBox(6, 2, 78, 1, prompt+"                                                                           ");
+            }
           }
         }
+
         for(int i = 0; i < enemies.size(); i++){ //checks enemies
           if(enemies.get(i).getHP() <= 0){
             TextBox(15, 2, 78, 1, enemies.get(i) + " died!");
             TextBox(25, 2, 78, 3, "");
             enemies.remove(i);
             hasDeath = true;
+            if(enemies.size() > 0 && !partyTurn){ 
+              String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
+              TextBox(6, 2, 78, 1, prompt+"                                                                           ");
+            }
           }
         }
 
+        //display the updated screen after input has been processed.
         drawScreen(party, enemies);
 
         //ends game when one side has no more adventurers
