@@ -54,7 +54,7 @@ public class PythonPrince extends Adventurer {
       this.attack(other);
       this.setHP(this.getmaxHP());
       return this + " used Class Method and attacked " + other
-      + " and dealt " + this.getmaxHPmaxHP() - this.getHPHP() + " restoring HP to max and consuming 7 charm.";
+      + " and dealt " + (this.getmaxHP() - this.getHP()) + " restoring HP to max and consuming 7 charm.";
     }
     else {
       return this + " tried to use Class Method but failed and lost turn.";
