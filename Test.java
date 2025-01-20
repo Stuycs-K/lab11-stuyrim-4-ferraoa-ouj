@@ -4,12 +4,12 @@ public class Test {
     JavaJester Jerry = new JavaJester("Jerry");
     PythonPrince Patrick = new PythonPrince("Patrick");
     EnemyTank Goon1 = new EnemyTank("Goon1");
-    System.out.println(Goon1.getHP());
-    System.out.println(Goon1.support());
-    System.out.println(Goon1.getHP());
-    Goon1.applyDamage(15);
-    System.out.println(Goon1.getHP());
-    System.out.println(Goon1.support());
-    System.out.println(Goon1.getHP());
+    EnemySharpshooter Goon2 = new EnemySharpshooter("Goon2");
+    System.out.println(Goon2.attack(Bob));
+    System.out.println(Bob.getHP());
+    System.out.println(Goon2.support());
+    System.out.println(Goon2.attack(Bob));
+    System.out.println(Bob.getHP());
+
   }
 }

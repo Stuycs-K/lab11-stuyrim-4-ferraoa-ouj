@@ -44,5 +44,17 @@ Make a clear list of features that work/dont work
 | Special: Caffeine Overdose | Deals 15-30 damage, reduces 8 caffeine. |
 | Support: Daily Coffee | Gives a cup of coffee. Restores 20 HP to other. Restores 6 caffeine and 10 hp to self. |
 
+## Enemy Subclasses
+### Tank
+| Stats | Description |
+|:------|:------------|
+| HP | 120 |
+| Attack | Deals 10 damage |
+| Support | Heals 10 HP to itslef |
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
+### Sharpshooter
+| Stats | Description |
+|:------|:------------|
+| HP | 50 |
+| Attack | Deals 15 damage |
+| Support | Doubles the attack damage on next turn (15 -> 30) |
