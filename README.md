@@ -58,3 +58,10 @@ Make a clear list of features that work/dont work
 | HP | 50 |
 | Attack | Deals 15 damage |
 | Support | Doubles the attack damage on next turn (15 -> 30) |
+
+### Swords Machine
+| Stats | Description |
+|:------|:------------|
+| HP | 70 |
+| Attack | Deals 20 damage and adds 10 gluttony to the meter |
+| Support | Heals to max or heals the value of gluttony in the meter |

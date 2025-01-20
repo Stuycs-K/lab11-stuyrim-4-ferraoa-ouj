@@ -17,6 +17,6 @@ public class EnemyTank extends Enemy{
 
     public String attack(Adventurer other) {
         other.applyDamage(10);
-        return this + " attacked " + other + " and dealt 10 damaage. ";
+        return this + " attacked " + other + " and dealt 10 damage.";
     }
 }
