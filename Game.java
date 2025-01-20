@@ -274,7 +274,7 @@ public class Game{
             //Decide where to draw the following prompt:
             partyTurn = false;
             whichOpponent = 0;
-            String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'sturn", Text.RED);
+            String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
             TextBox(6, 2, 78, 1, prompt + "                                                          ");
           }
           //done with one party member
@@ -319,10 +319,11 @@ public class Game{
 
 
           //Decide where to draw the following prompt:
-          String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'sturn", Text.RED);
-          TextBox(6, 2, 78, 1, prompt+"                                                           ");
           whichOpponent++;
-
+          if(whichOpponent < enemies.size()){
+            String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
+            TextBox(6, 2, 78, 1, prompt+"                                                           ");
+          }
         }//end of one enemy.
 
         //modify this if statement.
@@ -338,6 +339,19 @@ public class Game{
         }
 
         //display the updated screen after input has been processed.
+        //when HP goes to or below 0, the adventurer dies.
+        for(int i = 0; i < party.size(); i++){ //checks party
+          if(party.get(i).getHP() <= 0){
+            TextBox(15, 2, 78, 1, party.get(i) + " died!");
+            party.remove(i);
+          }
+        }
+        for(int i = 0; i < enemies.size(); i++){ //checks enemies
+          if(enemies.get(i).getHP() <= 0){
+            TextBox(15, 2, 78, 1, enemies.get(i) + " died!");
+            enemies.remove(i);
+          }
+        }
         drawScreen(party, enemies);
 
 
