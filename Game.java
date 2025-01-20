@@ -252,7 +252,7 @@ public class Game{
               TextBox(6, 2, 78, 5, userOutput);
             }
             else{
-              String userOutput = party.get(whichPlayer).support(enemies.get(target));
+              String userOutput = party.get(whichPlayer).support(party.get(target));
               TextBox(6, 2, 78, 5, userOutput);
             }
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -273,8 +273,8 @@ public class Game{
           }else{
             //This is after the player's turn, and allows the user to see the enemy turn
             //Decide where to draw the following prompt:
-            String prompt = "press enter to see monster's turn";
-
+            String prompt = Text.colorize("press enter to see monster's turn", Text.RED);
+            TextBox(10, 2, 78, 1, prompt);
             partyTurn = false;
             whichOpponent = 0;
           }
@@ -286,7 +286,36 @@ public class Game{
           //enemy attacks a randomly chosen person with a randomly chosen attack.z`
           //Enemy action choices go here!
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          /*
+          Enemy chooses an action:
+          If attack, it targets a party member
+          If special attack, it only works if it has enough sp resource and it is a boss
+          Else, it uses an attack
+          If support, it targets an ally or itself
+          */
+          int action = (int)(Math.random() * 3); //0 = atk, 1 = sp, 2 = su
+          String enemyOutput = "";
+          if(action == 1 && enemies.size() == 1){ //only boss can use special
+            int target =(int)(Math.random() * party.size());
+            enemyOutput = enemies.get(whichOpponent).specialAttack(party.get(target));
+          }
+          else if(action != 2){
+            int target =(int)(Math.random() * party.size());
+            enemyOutput = enemies.get(whichOpponent).attack(party.get(target));
+          }
+          else{
+            int target = (int)(Math.random() * enemies.size());
+            if (target == whichOpponent){
+              enemyOutput = enemies.get(whichOpponent).support();
+            }
+            else{
+              enemyOutput = enemies.get(whichOpponent).support(enemies.get(target));
+              
+            }
+          }
+          TextBox(15, 2, 78, 5, enemyOutput);
+          
+          
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
