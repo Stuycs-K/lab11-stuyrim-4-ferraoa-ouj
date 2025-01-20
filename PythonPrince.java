@@ -49,15 +49,16 @@ public class PythonPrince extends Adventurer {
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
-    if (getSpecial() > 7) {
+    if (getSpecial() >= 7) {
+      int damage = this.getmaxHP() - this.getHP();
       setSpecial(getSpecial() - 7);
       this.attack(other);
       this.setHP(this.getmaxHP());
       return this + " used Class Method and attacked " + other
-      + " and dealt " + (this.getmaxHP() - this.getHP()) + " restoring HP to max and consuming 7 charm.";
+      + " and dealt " + damage + " restoring HP to max and consuming 7 charm.";
     }
     else {
-      return this + " tried to use Class Method but failed and lost turn.";
+      return this + " tried to use Class Method but failed.";
     }
   }
 }

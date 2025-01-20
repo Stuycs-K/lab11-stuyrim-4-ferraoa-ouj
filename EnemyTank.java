@@ -8,10 +8,10 @@ public class EnemyTank extends Enemy{
         this.setHP(this.getHP() + 10);
         if (this.getHP() > this.getmaxHP()) {
             this.setHP(this.getmaxHP());
-            return this + " used it's heal and healed to its maxHP";
+            return this + " used its heal and healed to its maxHP";
         }
         else {
-            return this + " used it's heal and healed 10 HP";
+            return this + " used its heal and healed 10 HP";
         }
     }
 

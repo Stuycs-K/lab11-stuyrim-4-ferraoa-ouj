@@ -151,12 +151,12 @@ public class Game{
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
-
     //draw player party
     drawParty(party, 2);
 
     //draw enemy party
     drawParty(enemies, 25);
+    TextBox(27, 2, 78, 1, "");
 
     //places cursor at input place
     Text.go(29, 2);
@@ -319,29 +319,17 @@ public class Game{
           /*
           Enemy chooses an action:
           If attack, it targets a party member
-          If special attack, it only works if it has enough sp resource and it is a boss
-          Else, it uses an attack
-          If support, it targets an ally or itself
+          If support, it targets itself
           */
-          int action = (int)(Math.random() * 3); //0 = atk, 1 = sp, 2 = su
+          int action = (int)(Math.random() * 2); //0 = atk, 1 = su
           String enemyOutput = "";
-          if(action == 1 && enemies.size() == 1){ //only boss can use special
-            int target =(int)(Math.random() * party.size());
-            enemyOutput = enemies.get(whichOpponent).specialAttack(party.get(target));
-          }
-          else if(action != 2){
+          if(action == 0){
             int target =(int)(Math.random() * party.size());
             enemyOutput = enemies.get(whichOpponent).attack(party.get(target));
           }
           else{
             int target = (int)(Math.random() * enemies.size());
-            if (target == whichOpponent){
-              enemyOutput = enemies.get(whichOpponent).support();
-            }
-            else{
-              enemyOutput = enemies.get(whichOpponent).support(enemies.get(target));
-              
-            }
+            enemyOutput = enemies.get(whichOpponent).support();
           }
           TextBox(10, 2, 78, 5, enemyOutput);
           

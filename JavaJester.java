@@ -31,7 +31,7 @@ public class JavaJester extends Adventurer {
       restoreSpecial(2);
       restoreage = 2;
     }
-    return this + " used Recursion and attacked " + other + " and dealt " + totalDamage + " to them and restored " + restoreage + " silliness " ;
+    return this + " used Recursion and dealt " + totalDamage + " to " + other +", restoring " + restoreage + " silliness " ;
   }
 
   public String support(Adventurer other) {
