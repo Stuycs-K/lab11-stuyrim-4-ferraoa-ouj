@@ -221,6 +221,16 @@ public class Game{
         //Read user input
         input = userInput(in);
 
+         //You should decide when you want to re-ask for user input
+        while(partyTurn && !(input.startsWith("attack ") || input.startsWith("a ") ||
+              input.startsWith("special ") || input.startsWith("sp ") ||
+              input.startsWith("support ") || input.startsWith("su ") ||
+              input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+          TextBox(7, 2, 78, 1, Text.colorize("Please use the format above.", Text.GREEN) + "                  ");
+          input = userInput(in);
+        }
+        TextBox(7, 2, 78, 1, "");
+
         //example debug statment
         TextBox(23,2,78,1,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
@@ -258,7 +268,6 @@ public class Game{
             /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
           }
 
-          //You should decide when you want to re-ask for user input
           //If no errors:
           whichPlayer++;
 
