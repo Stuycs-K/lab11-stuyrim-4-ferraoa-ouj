@@ -8,7 +8,7 @@ public class PythonPrince extends Adventurer {
     super(name, 50);
   }
 
-  public String getSpecialName() {return "StackOverflow";}
+  public String getSpecialName() {return "Charm";}
 
   public int getSpecial() {return charm;}
 

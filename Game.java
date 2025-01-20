@@ -78,8 +78,29 @@ public class Game{
 
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
-    public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+    public static Adventurer createRandomAdventurer(String team){
+      if (team.equals("party")){
+        int randint = (int)(Math.random() * 3); //0 = CodeWarrior, 1 = JavaJester, 2 = PythonPrince
+        if(randint == 0){
+          return new CodeWarrior("Charlie"+(int)(Math.random()*100));
+        }
+        else if (randint == 1){
+          return new JavaJester("Jessie"+(int)(Math.random()*100));
+        }
+        else{
+          return new PythonPrince("Penny"+(int)(Math.random()*100));
+        }
+      }
+      else{
+        int randint = (int)(Math.random() * 2); //0 = Sharpshooter, 1 = Tank
+        if(randint == 0){
+          return new EnemySharpshooter("Sam"+(int)(Math.random()*100));
+        }
+        else{
+          return new EnemyTank("Tick"+(int)(Math.random()*100));
+        }
+      }
+      
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -184,7 +205,7 @@ public class Game{
       }
       else{
         for(int i = 0; i < enemyNum; i++){
-          enemies.add(createRandomAdventurer());
+          enemies.add(createRandomAdventurer("enemy"));
         }
       }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -195,7 +216,7 @@ public class Game{
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       int partyNum = (int) (Math.random() * 3) + 2;
       for(int i = 0; i < partyNum; i++){
-        party.add(createRandomAdventurer());
+        party.add(createRandomAdventurer("party"));
       }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 

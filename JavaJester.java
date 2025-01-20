@@ -7,7 +7,7 @@ public class JavaJester extends Adventurer {
     super(name, 80);
   }
 
-  public String getSpecialName() {return "StackOverflow";}
+  public String getSpecialName() {return "Silliness";}
 
   public int getSpecial() {return silliness;}
 
