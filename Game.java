@@ -352,9 +352,20 @@ public class Game{
             enemies.remove(i);
           }
         }
-        
+
         drawScreen(party, enemies);
 
+        //ends game when one side has no more adventurers
+        if (party.size() == 0){
+          TextBox(16, 2, 78, 1, Text.colorize("YOU LOSE", Text.RED, Text.WHITE + Text.BACKGROUND));
+          quit();
+          return;
+        }
+        else if (enemies.size() == 0){
+          TextBox(16, 2, 78, 1, Text.colorize("YOU WIN", Text.GREEN, Text.WHITE + Text.BACKGROUND));
+          quit();
+          return;
+        }
 
       }//end of main game loop
 
