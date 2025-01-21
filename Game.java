@@ -4,7 +4,8 @@ public class Game{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
-  private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
+  private static final int BORDER_BACKGROUND = Text.BLUE + Text.BACKGROUND;
+  private static final String SPACES = "                                                                                ";
 
   public static void main(String[] args) {
     run();
@@ -17,23 +18,23 @@ public class Game{
     
     Text.go(0,0);
     for(int i = 0; i < WIDTH; i++){ // Column 1
-      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
     }
 
     for(int column = 1; column < HEIGHT; column++){ //Columns 2 - 29
-      System.out.print("\n" + Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+      System.out.print("\n" + Text.colorize(" ", BORDER_BACKGROUND));
       Text.go(column, WIDTH);
-      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
     }
 
     Text.go(HEIGHT, 0); //Column 30
     for(int i = 0; i < WIDTH; i++){
-      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
     }
 
     Text.go(28,0);
     for(int i = 0; i < WIDTH; i++){ // Column 29
-      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+      System.out.print(Text.colorize(" ", BORDER_BACKGROUND));
     }
     
     Text.reset();    
@@ -87,7 +88,7 @@ public class Game{
       if (team.equals("party")){
         int randint = (int)(Math.random() * 3); //0 = CodeWarrior, 1 = JavaJester, 2 = PythonPrince
         if(randint == 0){
-          return new CodeWarrior("Charlie"+(int)(Math.random()*100));
+          return new CodeWarrior("Chuck"+(int)(Math.random()*100));
         }
         else if (randint == 1){
           return new JavaJester("Jessie"+(int)(Math.random()*100));
@@ -198,7 +199,7 @@ public class Game{
       //Clear and initialize
       Text.hideCursor();
       Text.clear();
-      drawBackground();
+      
 
 
       //Things to attack:
@@ -237,6 +238,7 @@ public class Game{
       String input = "";//blank to get into the main loop.
       Scanner in = new Scanner(System.in);
       //Draw the window border
+      drawBackground();
 
       //You can add parameters to draw screen!
       drawScreen(party, enemies);//initial state.
@@ -244,8 +246,8 @@ public class Game{
       //Main loop
 
       //display this prompt at the start of the game.
-      String preprompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);
-      TextBox(6, 2, 78, 1, preprompt+"                                                               ");
+      String preprompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
+      TextBox(6, 2, 78, 1, preprompt + SPACES);
 
       while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
         //Read user input
@@ -256,7 +258,7 @@ public class Game{
               input.startsWith("special ") || input.startsWith("sp ") ||
               input.startsWith("support ") || input.startsWith("su ") ||
               input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-          TextBox(7, 2, 78, 1, Text.colorize("Please use the format above.", Text.GREEN) + "                  ");
+          TextBox(7, 2, 78, 1, Text.colorize("Please use the format above.", Text.GREEN) + SPACES);
           input = userInput(in);
         }
         TextBox(7, 2, 78, 1, "");
@@ -302,8 +304,8 @@ public class Game{
           if(whichPlayer < party.size()){
             //This is a player turn.
             //Decide where to draw the following prompt:
-            String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);;
-            TextBox(6, 2, 78, 1, prompt+"                                                  ");
+            String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
+            TextBox(6, 2, 78, 1, prompt + SPACES);
 
 
           }else{
@@ -312,7 +314,7 @@ public class Game{
             partyTurn = false;
             whichOpponent = 0;
             String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
-            TextBox(6, 2, 78, 1, prompt + "                                                          ");
+            TextBox(6, 2, 78, 1, prompt + SPACES);
           }
           //done with one party member
         }else{
@@ -347,7 +349,7 @@ public class Game{
           whichOpponent++;
           if(whichOpponent < enemies.size()){
             String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
-            TextBox(6, 2, 78, 1, prompt+"                                                           ");
+            TextBox(6, 2, 78, 1, prompt + SPACES);
           }
         }//end of one enemy.
 
@@ -359,8 +361,8 @@ public class Game{
           turn++;
           partyTurn=true;
           //display this prompt before player's turn
-          String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);
-          TextBox(6, 2, 78, 1, prompt+"                                                                           ");
+          String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
+          TextBox(6, 2, 78, 1, prompt + SPACES);
         }
 
         //when HP goes to or below 0, the adventurer dies.
@@ -376,8 +378,8 @@ public class Game{
             party.remove(i);
             hasDeath = true;
             if(party.size() > 0 && partyTurn){ 
-              String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial # /(su)pport #/quit", Text.GREEN);
-              TextBox(6, 2, 78, 1, prompt+"                                                                           ");
+              String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": \n(a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
+              TextBox(6, 2, 78, 1, prompt + SPACES);
             }
           }
         }
@@ -390,7 +392,7 @@ public class Game{
             hasDeath = true;
             if(enemies.size() > 0 && !partyTurn){ 
               String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
-              TextBox(6, 2, 78, 1, prompt+"                                                                           ");
+              TextBox(6, 2, 78, 1, prompt + SPACES);
             }
           }
         }
