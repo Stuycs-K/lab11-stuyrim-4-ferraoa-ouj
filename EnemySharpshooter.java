@@ -14,11 +14,11 @@ public class EnemySharpshooter extends Enemy {
     public String attack(Adventurer other) {
         int damage = 0;
         if(doubleDamage) {
-            other.applyDamage(15);
-            damage += 15;
+            other.applyDamage(20);
+            damage += 20;
         }
-        other.applyDamage(15);
-        damage += 15;
+        other.applyDamage(20);
+        damage += 20;
         doubleDamage = false;
         return this + " dealt " + damage + " damage to " + other + ".";
     }

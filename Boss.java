@@ -29,7 +29,7 @@ public class Boss extends Enemy {
                 this.setHP(this.getmaxHP());
                 return this + " healed to max HP.";
             }
-            return this + " healed 20 HP.";
+            return this + " healed 50 HP.";
         }
         else {
             doubleDamage = true;
@@ -39,13 +39,15 @@ public class Boss extends Enemy {
 
     public String attack(Adventurer other) {
         int whichAttack = (int) (Math.random() * 3);
+        String output = "";
         if(poisoned != null) {
             poisoned.applyDamage(10);
+            output += poisoned + " lost 10 HP from poison!";
         }
         if (whichAttack == 0) {
             //Poison
             poison(other);
-            return other + " has been poisoned.";
+            output = other + " has been poisoned. " + output;
         }
         else if (whichAttack == 1) {
            //Lifesteal
@@ -59,7 +61,7 @@ public class Boss extends Enemy {
             this.restoreHP(20);
             damage += 20;
             doubleDamage = false;
-            return  this + " took " + damage + " HP from " + other + ".";
+            output = this + " took " + damage + " HP from " + other + ". " + output;
         }
         else if (whichAttack == 2) {
             int damage = 0;
@@ -69,8 +71,8 @@ public class Boss extends Enemy {
             }
             other.applyDamage(25);
             damage+=25;
-            return this + " dealt " + damage + " damage to " + other + ".";
+            output = this + " dealt " + damage + " damage to " + other + ". " + output;
         }
-        return "";
+        return output;
     }
 }

@@ -89,28 +89,28 @@ Make a clear list of features that work/dont work
 |:------|:------------|
 | HP | 120 |
 | Attack | Deals 10 damage |
-| Support | Heals 10 HP to itself |
+| Support | Heals 25 HP to itself |
 
 ### Sharpshooter
 | Stats | Description |
 |:------|:------------|
 | HP | 50 |
-| Attack | Deals 15 damage |
-| Support | Doubles the attack damage on next turn (15 -> 30) |
+| Attack | Deals 20 damage |
+| Support | Doubles the attack damage on next turn (20 -> 40) |
 
 ### Swords Machine
 | Stats | Description |
 |:------|:------------|
 | HP | 70 |
 | Attack | Deals 20 damage and adds 10 gluttony to the meter |
-| Support | Heals to max or heals the value of gluttony in the meter |
+| Support | Heals the value of gluttony in the meter |
 
 ### Boss: Virus
 | Stats | Description |
 |:------|:------------|
 | HP | 200 |
-| Attacks | Lifesteal: Take 10 HP from an opponent |
-| | Heavy Hitter: Does 20 damage to an opponent |
-| | Poison: Picks an opponent to poison for the rest of the game unless poison is called again and the opponent changes |
+| Attacks | Lifesteal: Take 20 HP from an opponent |
+| | Heavy Hitter: Does 40 damage to an opponent |
+| | Poison: Picks an opponent to poison for the rest of the game, dealing 10 damage per turn. If poison is called again, the opponent poisoned changes |
 | Supports | Double damage: Does double damage on the next turn |
-| | Heal: Heals 10HP |
+| | Heal: Heals 50 HP |
