@@ -210,7 +210,7 @@ public class Game{
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       int enemyNum = (int) (Math.random() * 3) + 1;
       if (enemyNum == 1){
-        JavaJester BossyBoss = new JavaJester("Bossy Boss"); //NOTE: change when Boss adventurer is added
+        Boss BossyBoss = new Boss("Bossy Boss");
         enemies.add(BossyBoss);
       }
       else{
