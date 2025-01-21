@@ -8,10 +8,10 @@ public class EnemySpyware extends Enemy{
         this.setHP(this.getHP() + 25);
         if (this.getHP() > this.getmaxHP()) {
             this.setHP(this.getmaxHP());
-            return this + " used its heal and healed to its maxHP";
+            return this + " stole information, healing to maxHP";
         }
         else {
-            return this + " used its heal and healed 25 HP";
+            return this + " stole information, healing 25 HP";
         }
     }
 

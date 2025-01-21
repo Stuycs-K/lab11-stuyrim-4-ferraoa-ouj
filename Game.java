@@ -100,13 +100,13 @@ public class Game{
       else{
         int randint = (int)(Math.random() * 3); //0 = Sharpshooter, 1 = Tank, 2 = SwordsMachine
         if(randint == 0){
-          return new EnemyMalware("Sam"+(int)(Math.random()*100));
+          return new EnemyMalware("Mally"+(int)(Math.random()*100));
         }
         else if (randint == 1){
-          return new EnemySpyware("Tick"+(int)(Math.random()*100));
+          return new EnemySpyware("Spy"+(int)(Math.random()*100));
         }
         else{
-          return new EnemyAdware("Spike"+(int)(Math.random()*100));
+          return new EnemyAdware("Ad"+(int)(Math.random()*100));
         }
       }
       
