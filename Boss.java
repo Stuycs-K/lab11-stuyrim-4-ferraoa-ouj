@@ -24,12 +24,12 @@ public class Boss extends Enemy {
         //  Heal, DoubleDamage
         int supporter = (int) (Math.random() * 2); 
         if (supporter == 0) {
-            this.setHP(this.getHP() + 10);
+            this.setHP(this.getHP() + 20);
             if (this.getHP() > this.getmaxHP()) {
                 this.setHP(this.getmaxHP());
                 return this + " healed to max HP.";
             }
-            return this + " healed 10 HP.";
+            return this + " healed 20 HP.";
         }
         else {
             doubleDamage = true;
@@ -40,7 +40,7 @@ public class Boss extends Enemy {
     public String attack(Adventurer other) {
         int whichAttack = (int) (Math.random() * 3);
         if(poisoned != null) {
-            poisoned.applyDamage(5);
+            poisoned.applyDamage(10);
         }
         if (whichAttack == 0) {
             //Poison
@@ -51,24 +51,24 @@ public class Boss extends Enemy {
            //Lifesteal
            int damage = 0;
             if (doubleDamage) {
-                other.applyDamage(10);
-                this.restoreHP(10);
-                damage += 10;
+                other.applyDamage(20);
+                this.restoreHP(20);
+                damage += 20;
             }
-            other.applyDamage(10);
-            this.restoreHP(10);
-            damage += 10;
+            other.applyDamage(20);
+            this.restoreHP(20);
+            damage += 20;
             doubleDamage = false;
             return  this + " took " + damage + " HP from " + other + ".";
         }
         else if (whichAttack == 2) {
             int damage = 0;
             if (doubleDamage) {
-                other.applyDamage(20);
-                damage+=20;
+                other.applyDamage(25);
+                damage+=25;
             }
-            other.applyDamage(20);
-            damage+=20;
+            other.applyDamage(25);
+            damage+=25;
             return this + " dealt " + damage + " damage to " + other + ".";
         }
         return "";
