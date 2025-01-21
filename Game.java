@@ -30,6 +30,11 @@ public class Game{
     for(int i = 0; i < WIDTH; i++){
       System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
     }
+
+    Text.go(28,0);
+    for(int i = 0; i < WIDTH; i++){ // Column 29
+      System.out.print(Text.colorize(" ", Text.BLUE + Text.BACKGROUND));
+    }
     
     Text.reset();    
   }
@@ -162,19 +167,20 @@ public class Game{
     TextBox(27, 2, 78, 1, "");
 
     //places cursor at input place
-    Text.go(29, 2);
+    TextBox(29, 2, 6, 1, "Input: ");
+    Text.go(29, 9);
   }
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-      Text.go(29, 2);
+      Text.go(29, 9);
       //show cursor
       Text.showCursor();
 
       String input = in.nextLine();
 
       //clear the text that was written
-      TextBox(29, 2, 78, 1, "");
+      TextBox(29, 9, 71, 1, "");
 
       Text.hideCursor();
 
