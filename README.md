@@ -6,27 +6,49 @@
 Make a clear list of features that work/dont work
 
 :white_check_mark: drawBackground()
+
 :white_check_mark: drawText()
+
 :white_check_mark: TextBox()
+
 :white_check_mark: createRandomAdventurer()
+
 :white_check_mark: drawParty()
+
 :white_check_mark: colorByPercent()
+
 :white_check_mark: drawScreen()
+
 :white_check_mark: userInput()
+
 :white_check_mark: quit()
+
 :white_check_mark: run()
+
 :white_check_mark: Java Jester
+
 :white_check_mark: Python Prince
+
 :white_check_mark: Code Warrior
+
 :white_check_mark: Tank
+
 :white_check_mark: Sharpshooter
+
 :white_check_mark: Swords Machine
+
 :white_check_mark: Boss
+
 :white_check_mark: play with a group of 3 different types adventurers
+
 :white_check_mark: play against 1-3 randomly chosen adventurer opponents
+
 :white_check_mark: use attack/special operations on your opponents
+
 :white_check_mark: use support operations on your team
+
 :white_check_mark: program ends when the user choosed to quit, or all enemies is defeated, or the entire party is defeated. A win/lose screen is useful here.
+
 :white_check_mark: display the results of the attack/special/support inside your border. Do not print things at the bottom of the screen or it will scroll.
 
 :white_check_mark: This feature works.
