@@ -51,6 +51,7 @@ Make a clear list of features that work/dont work
 
 :white_check_mark: display the results of the attack/special/support inside your border. 
 
+:white_check_mark: have a special boss class adventurer for when a single opponent is selected.
 
 ## Adventurer Subclasses
 ### Java Jester
