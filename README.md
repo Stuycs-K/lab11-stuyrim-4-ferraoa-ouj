@@ -109,8 +109,8 @@ Make a clear list of features that work/dont work
 | Stats | Description |
 |:------|:------------|
 | HP | 200 |
-| Attacks | Lifesteal: Take 20 HP from an opponent |
-| | Heavy Hitter: Does 40 damage to an opponent |
+| Attacks | Lifesteal: Take 15 HP from an opponent |
+| | Heavy Hitter: Does 25-35 damage to an opponent |
 | | Poison: Picks an opponent to poison for the rest of the game, dealing 10 damage per turn. If poison is called again, the opponent poisoned changes |
 | Supports | Double damage: Does double damage on the next turn |
 | | Heal: Heals 50 HP |

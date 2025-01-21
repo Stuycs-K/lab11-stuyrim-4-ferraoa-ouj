@@ -88,13 +88,13 @@ public class Game{
       if (team.equals("party")){
         int randint = (int)(Math.random() * 3); //0 = CodeWarrior, 1 = JavaJester, 2 = PythonPrince
         if(randint == 0){
-          return new CodeWarrior("Chuck"+(int)(Math.random()*100));
+          return new CodeWarrior("Coder"+(int)(Math.random()*100));
         }
         else if (randint == 1){
-          return new JavaJester("Jessie"+(int)(Math.random()*100));
+          return new JavaJester("Javas"+(int)(Math.random()*100));
         }
         else{
-          return new PythonPrince("Penny"+(int)(Math.random()*100));
+          return new PythonPrince("Pythe"+(int)(Math.random()*100));
         }
       }
       else{
@@ -210,7 +210,7 @@ public class Game{
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       int enemyNum = (int) (Math.random() * 3) + 1;
       if (enemyNum == 1){
-        Boss BossyBoss = new Boss("Bossy Boss");
+        Boss BossyBoss = new Boss("The Bossy Virus");
         enemies.add(BossyBoss);
       }
       else{
@@ -378,7 +378,7 @@ public class Game{
             party.remove(i);
             hasDeath = true;
             if(party.size() > 0 && partyTurn){ 
-              String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": \n(a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
+              String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
               TextBox(6, 2, 78, 1, prompt + SPACES);
             }
           }
