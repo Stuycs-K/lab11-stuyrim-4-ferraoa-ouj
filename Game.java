@@ -194,6 +194,33 @@ public class Game{
     Text.go(32,1);
   }
 
+  public static boolean checkValidInput(String input, ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
+    boolean validAtkInput = input.startsWith("attack ") || input.startsWith("a ") ||
+                            input.startsWith("special ") || input.startsWith("sp ");
+    boolean validSuInput = input.startsWith("support ") || input.startsWith("su ");
+    boolean validQuitInput = input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit");      
+
+    if(validAtkInput){
+      try{
+        int target = Integer.parseInt(input.substring(input.length() - 1));
+        int someonesHP = enemies.get(target).getHP();
+      }
+      catch(Exception e){
+        validAtkInput = false;
+      }
+    }
+    else if (validSuInput){
+      try{
+        int target = Integer.parseInt(input.substring(input.length() - 1));
+        int someonesHP = party.get(target).getHP();
+      }
+      catch(Exception e){
+        validSuInput = false;
+      }
+    }
+    
+    return validAtkInput || validSuInput || validQuitInput;
+  }
 
   public static void run(){
       //Clear and initialize
@@ -253,13 +280,14 @@ public class Game{
         //Read user input
         input = userInput(in);
 
-         //You should decide when you want to re-ask for user input
-        while(partyTurn && !(input.startsWith("attack ") || input.startsWith("a ") ||
-              input.startsWith("special ") || input.startsWith("sp ") ||
-              input.startsWith("support ") || input.startsWith("su ") ||
-              input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+        //You should decide when you want to re-ask for user input
+
+        boolean validInput = checkValidInput(input, party, enemies);
+
+        while(partyTurn && !validInput){
           TextBox(7, 2, 78, 1, Text.colorize("Please use the format above.", Text.GREEN) + SPACES);
           input = userInput(in);
+          validInput = checkValidInput(input, party, enemies);
         }
         TextBox(7, 2, 78, 1, "");
 
