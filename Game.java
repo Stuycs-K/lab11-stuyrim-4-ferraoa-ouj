@@ -127,7 +127,7 @@ public class Game{
         int spacing = 78 / party.size();
         String hpStr = "HP: " + player.getHP() + "/" + player.getmaxHP();
         TextBox(startRow + 0, 2 + spacing * i, spacing - 1, 1, player.getName());
-        TextBox(startRow + 1, 2 + spacing * i, spacing - 1, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()) + "   ");
+        TextBox(startRow + 1, 2 + spacing * i, spacing - 1, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()));
         TextBox(startRow + 1, 2 + spacing * i + hpStr.length(), spacing - (1 + hpStr.length()), 1, "");
         Text.reset();
         TextBox(startRow + 2, 2 + spacing * i, spacing - 1, 1, player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
@@ -141,7 +141,7 @@ public class Game{
   // under 75% : yellow
   // otherwise : white
   public static String colorByPercent(int hp, int maxHP){
-    String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
+    String output = "" + hp + "/" + maxHP;
     double percent = (double) hp / maxHP;
     if (percent < 0.25){
       return Text.colorize(output, Text.RED);
