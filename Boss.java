@@ -45,7 +45,7 @@ public class Boss extends Enemy {
         if (whichAttack == 0) {
             //Poison
             poison(other);
-            return other + " has been pobisoned.";
+            return other + " has been poisoned.";
         }
         else if (whichAttack == 1) {
            //Lifesteal
