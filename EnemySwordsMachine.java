@@ -15,7 +15,7 @@ public class EnemySwordsMachine extends Enemy {
         if (currentHP + gluttony >= this.getmaxHP()) {
             this.setHP(this.getmaxHP());
             gluttony = 0;
-            return this + " relished on the damage it dealt and healed " + (this.getmaxHP() - currentHP) + " HP."
+            return this + " relished on the damage it dealt and healed " + (this.getmaxHP() - currentHP) + " HP.";
         }
         else { 
             this.setHP(currentHP + gluttony);
