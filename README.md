@@ -31,11 +31,11 @@ Make a clear list of features that work/dont work
 
 :white_check_mark: Code Warrior
 
-:white_check_mark: Tank
+:ballot_box_with_check: Spyware
 
-:white_check_mark: Sharpshooter
+:ballot_box_with_check: Malware
 
-:white_check_mark: Swords Machine
+:ballot_box_with_check: Adware
 
 :white_check_mark: Boss
 
@@ -54,6 +54,8 @@ Make a clear list of features that work/dont work
 :white_check_mark: Display the results of the attack/special/support inside your border. 
 
 :white_check_mark: Have a special boss class adventurer for when a single opponent is selected.
+
+:ballot_box_with_check: Has a death message when an adventurer dies
 
 ## Adventurer Subclasses
 ### Java Jester
