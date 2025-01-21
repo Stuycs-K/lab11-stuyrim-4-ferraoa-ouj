@@ -84,21 +84,21 @@ Make a clear list of features that work/dont work
 | Support: Daily Coffee | Gives a cup of coffee. Restores 20 HP to other. Restores 6 caffeine and 10 hp to self. |
 
 ## Enemy Subclasses
-### Tank (Spyware)
+### Spyware
 | Stats | Description |
 |:------|:------------|
 | HP | 120 |
 | Attack | Deals 10 damage |
 | Support | Heals 25 HP to itself |
 
-### Sharpshooter (Malware)
+### Malware
 | Stats | Description |
 |:------|:------------|
 | HP | 50 |
 | Attack | Deals 20 damage |
 | Support | Doubles the attack damage on next turn (20 -> 40) |
 
-### Swords Machine (Adware)
+### Adware
 | Stats | Description |
 |:------|:------------|
 | HP | 70 |
