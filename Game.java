@@ -125,8 +125,10 @@ public class Game{
       for(int i = 0; i < party.size(); i++){
         Adventurer player = party.get(i);
         int spacing = 78 / party.size();
+        String hpStr = "HP: " + player.getHP() + "/" + player.getmaxHP();
         TextBox(startRow + 0, 2 + spacing * i, spacing - 1, 1, player.getName());
         TextBox(startRow + 1, 2 + spacing * i, spacing - 1, 1, "HP: " + colorByPercent(player.getHP(), player.getmaxHP()) + "   ");
+        TextBox(startRow + 1, 2 + spacing * i + hpStr.length(), spacing - (1 + hpStr.length()), 1, "");
         Text.reset();
         TextBox(startRow + 2, 2 + spacing * i, spacing - 1, 1, player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
       }
@@ -405,6 +407,10 @@ public class Game{
             TextBox(2, 2, 78, 3, "");
             party.remove(i);
             hasDeath = true;
+            whichPlayer --;
+            if (whichPlayer < 0){
+              whichPlayer = 0;
+            }
             if(party.size() > 0 && partyTurn){ 
               String prompt = Text.colorize("Enter command for "+party.get(whichPlayer)+": (a)ttack #/(sp)ecial #/(su)pport #/(q)uit", Text.GREEN);
               TextBox(6, 2, 78, 1, prompt + SPACES);
@@ -418,6 +424,10 @@ public class Game{
             TextBox(25, 2, 78, 3, "");
             enemies.remove(i);
             hasDeath = true;
+            whichOpponent--;
+            if (whichOpponent < 0){
+              whichOpponent = 0;
+            }
             if(enemies.size() > 0 && !partyTurn){ 
               String prompt = Text.colorize("press enter to see "+enemies.get(whichOpponent)+"'s turn", Text.RED);
               TextBox(6, 2, 78, 1, prompt + SPACES);
